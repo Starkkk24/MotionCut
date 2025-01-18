@@ -43,16 +43,16 @@ spl_chars = [
 ]
 
 
-
-# random
+# Functionaing Code
 import random
 while True:
+    # Random Choices
     N=random.choice(nouns)
     A=random.choice(adjs)
     D=random.choice(digs)
     S=random.choice(spl_chars)
 
-    # Appending Preferences
+    # Adding Preferences
     while True:
         inp=input("Y for Yes \nN for No \nDo you want to add preferences:").lower()
         if inp=="y":
@@ -71,7 +71,7 @@ while True:
     random.shuffle(nme)
     username="".join(nme)
 
-    #File handling
+    #File handling and checking for existing names
     f=open("names.txt","r")
     existing_name=f.read().splitlines()
 
