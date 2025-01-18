@@ -79,7 +79,7 @@ while True:
         print(f"Username '{username}' already exists!\nGo again!")
         continue
     else:
-        f=open("names.txt","w")
+        f=open("names.txt","a")
         f.write(username+"\n")
         f.close
         break
