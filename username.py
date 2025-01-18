@@ -1,3 +1,4 @@
+# pre defines
 adjs = [
     "Brave", "Clever", "Witty", "Fierce", "Mighty", "Lively", "Swift", 
     "Bold", "Silent", "Happy", "Curious", "Epic", "Shiny", "Zesty", 
@@ -49,24 +50,34 @@ spl_chars = [
     "<", ">", ",", ".", "?", "/", "~", "`"
 ]
 
-import random
 
-# N=random.randint(0,100)
-# A=random.randint(0,100)
-# D=random.randint(0,10)
-# S=random.randint(0,32)
+# random
+import random
 
 N=random.choice(nouns)
 A=random.choice(adjs)
 D=random.choice(digs)
 S=random.choice(spl_chars)
 
-# username=nouns[N]+adjs[A]+digs[D]+spl_chars[S]
-username=N+A+D+S
-print(username)
+inp=input("Y for Yes \nN for No \nDo you want to add preferences:")
+inp=inp.lower()
+if inp=="y":
+    UIN=input("Enter preference here: ")
+    U_IN=("_"+UIN+"_")
+    nme=[N,A,D,S,U_IN]
+elif inp=="n":
+    nme=[N,A,D,S]
+else:
+    print("Please enter Y or N.")
 
 
-# print(len(adjs))
-# print(len(nouns))
-# print(len(digs))
-# print(len(spl_chars))
+random.shuffle(nme)
+username="".join(nme)
+
+f=open("names.txt","a")
+f.write(username+"\n")
+f.close
+
+f=open("names.txt","r")
+print(f.read())
+
